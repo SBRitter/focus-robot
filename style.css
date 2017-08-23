@@ -1,0 +1,36 @@
+.container {
+  width: 60% !important;
+  margin-top: 100px;
+  padding: 0px 0px 0px 0px !important;
+}
+
+#robiX {
+  position: absolute;
+  left: 0px;
+  top: 220px;
+}
+
+#workshop {
+  opacity: 0.7;
+}
+
+#curtain {
+  position: absolute;
+  width: 20%;
+  top: 0px;
+  bottom: 0px;
+  z-index: 1000;
+  background: white;
+}
+
+#robiX-tool {
+  position: absolute;
+  left: 100px;
+  top: 240px;
+}
+
+#object {
+  position: absolute;
+  left: 680px;
+  top: 310px;
+}
