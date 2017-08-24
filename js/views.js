@@ -54,7 +54,7 @@ var initPresentationView = function() {
 var initTrialView = function(tools, objects) {
 	var view = {};
 	view.name = 'trial';
-	view.template = $('#training-trial-templ').html();
+	view.template = $('#trial-templ').html();
 	var rendered = Mustache.render(view.template);
 	$('#main').html(rendered);
 	
@@ -64,25 +64,32 @@ var initTrialView = function(tools, objects) {
 	var currentObject = objects[1];
 	
 	$("#object").html('<img src="img/' + objects[j] + '.png" width="180px"/>');
+	$("#robiX-tool").html('<img src="img/' + tools[i] + '.png" width="150px"/>');
 	
 	$(document).keypress(function(e){
 	  
 	  if (e.keyCode == 49) { // key '1'
 
-	    $("#robiX-tool").html('<img src="img/' + tools[i] + '.png" width="150px"/>');
-
-      // tool and robi enter the room
-	    $("#robiX-tool").animate({ 
-        left: "+=600px",
-      }, 2500);
-      $("#robiX").animate({ 
-        left: "+=600px",
-      }, 2500);
+      /* tool and robi enter the room
+      robi puts down the tool */
+	    $("#robiX-tool").stop().animate({ 
+        left: "+=520px"
+      }, 1500);
+      $("#robiX").stop().animate({ 
+        left: "+=520px"
+      }, 1500);
+      setTimeout(function() {
+        $("#robiX").html('<img src="img/robiX-armout.png" width="300px"/>');
+        $("#robiX-tool").stop().css({
+          top: 230,
+          left: 700
+        });
+      }, 1500);
       
       // robi stays there for some time then moves back
       setTimeout(function() {
-        $("#robiX").animate({ 
-          left: "-=600px",
+        $("#robiX").stop().animate({ 
+          left: "0px"
         }, 1000);
       }, 3000);
       
@@ -92,16 +99,21 @@ var initTrialView = function(tools, objects) {
     } else if (e.keyCode == 50) { // key '2'
       
       // second robi moves to the object and gets the tool
-      $("#robiX-tool").animate({ 
-        left: "-=600px",
+      // not ready yet
+      $("#robiX-tool").stop().animate({ 
+        left: 130,
+        top: 180
       }, 0);
+
        
     } else if (e.keyCode == 51) { // key '3'
     
       // get a new tool
       if (i < tools.length-1) {
         i++;
-        currentTool = tools[i];
+        $("#robiX-tool").html('<img src="img/' + tools[i] + '.png" width="150px"/>');
+        $("#robiX").html('<img src="img/robiX-armup.png" width="300px"/>');
+    
       } else {
         // ...?
       }
@@ -109,9 +121,9 @@ var initTrialView = function(tools, objects) {
       // get a new object
       if (j < objects.length-1) {
         j++;
-        currentObject = objects[j];
         $("#object").html('<img src="img/' + objects[j] + '.png" width="180px"/>');
       } else {
+        // when all objects are through, go to next view
         exp.getNextView();
       }
     }
@@ -129,5 +141,14 @@ var initReadyToTakeOffView = function() {
 	$('#start-experiment-btn').on('click', function() {
 		exp.getNextView();
 	});
+	return view;
+};
+
+var initEndView = function() {
+	var view = {};
+	view.name = 'end';
+	view.template = $('#end-templ').html();
+	var rendered = Mustache.render(view.template);
+	$('#main').html(rendered);
 	return view;
 };

@@ -21,16 +21,17 @@
   bottom: 0px;
   z-index: 1000;
   background: white;
+  opacity: 0.5;
 }
 
 #robiX-tool {
   position: absolute;
-  left: 100px;
-  top: 240px;
+  left: 130px;
+  top: 180px;
 }
 
 #object {
   position: absolute;
   left: 680px;
-  top: 310px;
+  top: 300px;
 }
