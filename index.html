@@ -19,14 +19,15 @@
   
   <body>
   
-		<div id="curtain"></div>
+		<div id="curtain-left"></div>
+		<div id="curtain-right"></div>
 	
 		<div class="container">
 
 			<main id="main"></main>
 		
 			<script id="intro-templ" type="x-tmpl-mustache">
-				<div class="intro-templ">
+				<div class="info-templ">
 					<p>Herzlich Willkommen!</p>
 					<p>Danke, dass du dir die Zeit für unser Experiment nimmst. Zunächst einmal wollen wir dir ein paar Sachen vorstellen.</p>
 					<button type="submit" id="start-presentation-btn" class="btn btn-primary">Weiter</button>
@@ -34,7 +35,7 @@
 			</script>
 	
 			<script id="presentation-templ" type="x-tmpl-mustache">
-				<div class="instructions-templ">
+				<div class="info-templ">
 		
 					<div id="introduce-robots">
 						<p>Das sind die beiden Roboter X und Y. X verteilt gerne Sachen in der Werkstatt, die Y dann suchen muss. Y ist ziemlich schusselig -- deshalb soll er verschrottet werden. Du musst ihm helfen, die Sachen wiederzufinden, die X verteilt hat.</p>
@@ -68,6 +69,10 @@
 				
 					<div id="robiX">
 						<img src="img/robiX-armup.png" width="300px"/>
+					</div>
+					
+					<div id="robiY">
+						<img src="img/robiY.png" width="300px"/>
 					</div>
 				
 					<div id="object"></div>	

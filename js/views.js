@@ -94,16 +94,45 @@ var initTrialView = function(tools, objects) {
       }, 3000);
       
       // second robi entries the room and asks the question
-      // ...
+      setTimeout(function() {
+        $("#robiY").stop().animate({ 
+          right: "800px"
+        }, 2000);
+      }, 5000);
       
     } else if (e.keyCode == 50) { // key '2'
       
-      // second robi moves to the object and gets the tool
-      // not ready yet
-      $("#robiX-tool").stop().animate({ 
-        left: 130,
-        top: 180
-      }, 0);
+      // second robi moves to the object
+      $("#robiY").stop().animate({ 
+        right: "-=150px"
+      }, 500);
+      
+      // gets the tool
+      setTimeout(function() {
+        $("#robiY").html('<img src="img/robiY-armout.png" width="300px"/>');
+        $("#robiX-tool").stop().css({
+          top: 230,
+          left: 700
+        });
+      }, 1000);
+        
+      // leaves the room with the tool
+      setTimeout(function() {
+          $("#robiX-tool").stop().animate({ 
+            left: 1350
+          }, 1000);
+          $("#robiY").stop().animate({ 
+            right: 0
+          }, 1000);
+      }, 2000);
+      
+      setTimeout(function() {
+          $("#robiX-tool").stop().animate({ 
+            left: 130,
+            top: 180
+          }, 0);
+          $("#robiX").html('<img src="img/robiX-armup.png" width="300px"/>');
+      }, 4000);
 
        
     } else if (e.keyCode == 51) { // key '3'
@@ -112,8 +141,7 @@ var initTrialView = function(tools, objects) {
       if (i < tools.length-1) {
         i++;
         $("#robiX-tool").html('<img src="img/' + tools[i] + '.png" width="150px"/>');
-        $("#robiX").html('<img src="img/robiX-armup.png" width="300px"/>');
-    
+         
       } else {
         // ...?
       }
