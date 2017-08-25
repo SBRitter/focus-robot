@@ -4,9 +4,9 @@ $(document).ready(function(){
 
 var exp = {};
 var training = false;
-var trainingTools = ['hammer', 'amboss'];
+var trainingTools = ["hammer", "amboss"];
 var trainingObjects = ["beele", "meele"];
-var experimentTools = ['amboss', 'hammer'];
+var experimentTools = ["amboss", "hammer"];
 var experimentObjects = ["beele", "meele"];
 
 /* view handler */

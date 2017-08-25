@@ -18,10 +18,7 @@
   </head>
   
   <body>
-  
-		<div id="curtain-left"></div>
-		<div id="curtain-right"></div>
-	
+
 		<div class="container">
 
 			<main id="main"></main>
@@ -62,24 +59,28 @@
 		
 			<script id="trial-templ" type="x-tmpl-mustache">
 				<div class="trial-templ">
-
+					
+					<div id="left-wall" style="z-index: 1000000; position: relative; float: left;">
+						<img src="img/left-wall.jpg" >
+					</div>
+					
 					<div id="workshop">
-						<img src="img/workshop.jpg"/>
+						<img src="img/workshop.jpg" >
 					</div>
 				
 					<div id="robiX">
-						<img src="img/robiX-armup.png" width="300px"/>
+						<img src="img/robiX.png" width="300px"/>
 					</div>
 					
 					<div id="robiY">
-						<img src="img/robiY.png" width="300px"/>
+						<img src="img/robiY-armdown.png" width="300px"/>
 					</div>
 				
 					<div id="object"></div>	
 
 					<div id="robiX-tool"></div>
 					
-					<div id="button"></div>
+					
 
 			</div>
 			</script>
