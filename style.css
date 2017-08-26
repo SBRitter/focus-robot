@@ -1,8 +1,10 @@
+html, body {margin: 0; height: 100%; overflow: hidden}
+
 .container {
   width: 65% !important;
   margin-top: 100px;
   padding: 0px 0px 0px 0px !important;
-  margin-left: 400px !important;
+  margin-left: 350px !important;
 }
 
 #robiY {
@@ -15,21 +17,12 @@
   position: absolute;
   left: -320px;
   top: 220px;
+  -webkit-transform: translateZ(0);
 }
 
 #workshop {
   opacity: 1;
 }
-
-/*#curtain-left {
-  position: absolute;
-  width: 20%;
-  top: 0px;
-  bottom: 0px;
-  z-index: 1000;
-  background: white;
-  opacity: 0.5;
-}*/
 
 #robiX-tool {
   position: absolute;
@@ -44,6 +37,5 @@
 }
 
 .info-templ {
-  /*text-align: center;*/
   width: 70%;
 }
