@@ -29,7 +29,7 @@ var initPresentationView = function() {
     }, displayTime);
     
     // comment this for faster testing
-    setTimeout(function() {
+    /*setTimeout(function() {
       $("#introduce-workshop").hide();
       $("#introduce-all-objects").fadeIn("slow");
       var objects = ["Maame", "Wiele", "Loole"];
@@ -47,10 +47,11 @@ var initPresentationView = function() {
           }
         }, 1000);
       }
-    }, displayTime*3);
+    }, displayTime*3);*/
 
     // uncomment this for faster testing
-    //$("#introduction-end").fadeIn("slow");
+    //
+    $("#introduction-end").fadeIn("slow");
 
   $('#continue-btn').on('click', function() {
     exp.getNextView();
@@ -58,7 +59,7 @@ var initPresentationView = function() {
   return view;
 };
 
-var initTrialView = function(tools, objects) {
+var initTrialView = function(tools, objects, focus) {
 
   var view = {};
   view.name = 'trial';
@@ -71,7 +72,7 @@ var initTrialView = function(tools, objects) {
   $("#robiY").html('<img src="img/robiY-armdown.png" width="300px" id="robiY-image"/>');
 
   // count...
-  // ...tools	
+  // ...tools
   var i = 0;
   // ...objects
   var j = 0;
@@ -119,15 +120,30 @@ var initTrialView = function(tools, objects) {
           left: 90
         }, 2000);
       },  4000);
+      
+      // display thought bubble
+      setTimeout(function() {
+        populateBubble(focus[j], tools[i], objects[j]);
+        $("#bubble").fadeIn("slow");
+      }, 6000);
+      
+      // display sentence which the participant is supposed to say
+      setTimeout(function() {
+        $("#sentence").html("<br><br>" + constructSentence(tools[i], objects[i]));
+        $("#sentence").fadeIn("slow");
+      }, 8000);
 
       /* todo: 
       * - animate mouth
       * - play sound ("wo hat er den hammer hingelegt?"
-      * - display sentence ("er hat den hammer auf die maame gelegt.")
+      * - display thought bubble
       */
       
     } else if (e.keyCode == 50) { // key '2'
-
+    
+      $("#sentence").fadeOut("fast");
+      $("#bubble").fadeOut("fast");
+      
       // second robi moves to the object
       $("#robiY").stop().animate({ 
         left: 520,
@@ -186,7 +202,7 @@ var initTrialView = function(tools, objects) {
         // when all objects are through, go to next view
         exp.getNextView();
         j = 0;
-      }	
+      }
     } 
   });
   return view;
@@ -212,3 +228,33 @@ var initEndView = function() {
   $('#main').html(rendered);
   return view;
 };
+
+var constructSentence = function(tool, object) {
+  var determiner = "die";
+  if (tool === "amboss"
+    || tool === "hammer"
+    || tool === "nagel"
+    || tool === "pinsel"
+    || tool === "zirkel") {
+    determiner = "den";
+  }
+  return "Er hat " + determiner + " " + firstCap(tool) + " auf die " + firstCap(object) + " gelegt.";
+}
+
+/* Capitalises the first letter of a string 
+and returns the whole string */
+function firstCap(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+function populateBubble(focus, tool, object) {
+  if (focus === "background") {
+    //...
+  } else if (focus === "broad") {
+    $("#bubble-content").html("?");
+  } else if (focus === "narrow") {
+    $("#bubble-content").html("wo?");
+  } else if (focus === "contrastive") {
+    //...
+  }
+}
