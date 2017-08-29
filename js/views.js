@@ -119,14 +119,16 @@ var initTrialView = function(tools, objects, focus, competitors, trainingSequenc
         }, 1000);
       },  3500);
       
-      // display thought bubble
+      // display thought bubble and animate mouth
       setTimeout(function() {
         populateBubble(focus[j], tools[j], objects[j], competitors[j]);
         $("#bubble").fadeIn("slow");
+        
+        moveMouthStart();
+        moveMouthStop(1959);
       }, 5000);
 
       /* todo: 
-      * - animate mouth
       * - play sound ("wo hat er den hammer hingelegt?"
       */
 
@@ -278,4 +280,18 @@ function populateBubble(focus, tool, object, competitor) {
     $("#bubble-content").html("<div style='position: relative; top: 40px'><img src='img/" + tool + ".png' width='100px'/></div>" +
       "<img src='img/" + competitor + ".png' width='100px'/><br>?");
   }
+}
+
+moveMouthStart = function() {
+  mouthInterval = setInterval(function() {
+    setTimeout(function() { $("#robiY-image").attr("src", "img/robiY-talking1.png"); }, 75);
+    setTimeout(function() { $("#robiY-image").attr("src", "img/robiY-talking2.png"); }, 150);
+  }, 225);
+}
+
+moveMouthStop = function(timeLag) {
+  setTimeout(function() {
+    $("#robiY-image").attr("src", "img/robiY-armdown.png");
+    clearTimeout(mouthInterval);
+   }, timeLag);
 }
