@@ -20,7 +20,7 @@
   <body>
 
 		<div class="container">
-
+		
 			<main id="main"></main>
 		
 			<script id="intro-templ" type="x-tmpl-mustache">
@@ -58,6 +58,7 @@
 			</script>
 		
 			<script id="trial-templ" type="x-tmpl-mustache">
+			
 				<div class="trial-templ">
 					
 					<div id="left-wall" style="z-index: 100; position: relative; float: left;">
@@ -72,7 +73,9 @@
 					
 					<div id="robiY"></div>
 									
-					<div id="object"></div>	
+					<div id="object"></div>
+					
+					<div id="sign"></div>	
 
 					<div id="robiX-tool"></div>
 					
@@ -81,19 +84,20 @@
 					<div id="bubble">
 					  <div id="bubble-content"></div>
 					</div>
-
-			</div>
-			</script>
-		
-			<script id="ready-to-take-off-templ" type="x-tmpl-mustache">
-				<div class="intro-templ">
-					<p>Das war das Training. Bist du bereit für das Experiment?</p>
-					<button type="submit" id="start-experiment-btn" class="btn btn-primary">Ja, kann los gehen!</button>
-				</div>
+					
+					<div id="ready-to-take-off-screen">
+					  Das war das Training. Bist du bereit für das Experiment?
+					  <br><br>
+		        <button type="submit" id="start-exp-btn" class="btn btn-primary">Ja, los!</button>
+		      </div>
+					
+					<div id="curtain-wall"></div>
+			  </div>
+			  
 			</script>
 			
 		  <script id="end-templ" type="x-tmpl-mustache">
-				<div class="end-templ">
+				<div class="info-templ">
 					<p>Das war's! :-) Vielen Dank für deine Teilnahme!</p>
 				</div>
 			</script>

@@ -2,7 +2,8 @@
 html, body {
   margin: 0;
   height: 100%;
-  overflow: hidden
+  overflow: hidden;
+  font-size: 16px !important;
 }
 
 .container {
@@ -40,8 +41,24 @@ html, body {
   top: 300px;
 }
 
+#sign {
+  position: absolute;
+  left: 850px;
+  top: 420px;
+  width: 150px;
+  background-image: url("img/sign.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  text-align: center;
+  font-size: 32px;
+  color: black;
+  box-shadow: 5px 5px 5px #222;
+}
+
+
 .info-templ {
   width: 70%;
+  text-align: center;
 }
 
 #sentence {
@@ -62,13 +79,37 @@ html, body {
   z-index: 102;
   display: none;
   text-align: center;
-  font-size: 84px;
+  font-size: 54px;
 }
 
 #bubble-content {
   position: relative;
-  left: 110px;
-  top: 30px;
-  width: 130px;
-  height: 130px;
+  left: 60px;
+  top: -30px;
+  width: 250px;
+  height: 180px;
+}
+
+#ready-to-take-off-screen {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  display: none;
+  text-align: center;
+  padding-top: 130px;
+  z-index: 103;
+  background-color: white;
+}
+
+#curtain-wall {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  display: none;
+  z-index: 104;
+  background-color: white;
 }
