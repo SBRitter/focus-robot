@@ -55,7 +55,6 @@ html, body {
   box-shadow: 5px 5px 5px #222;
 }
 
-
 .info-templ {
   width: 70%;
   text-align: center;
@@ -112,4 +111,24 @@ html, body {
   display: none;
   z-index: 104;
   background-color: white;
+}
+
+#score {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 180px;
+  height: 180px;
+  background-image: url("img/scores_border.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  text-align: center;
+  font-size: 28px;
+}
+
+#scores-number {
+  position: relative;
+  top: 25px;
+  font-size: 54px;
+  color: darkred;
 }

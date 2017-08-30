@@ -73,6 +73,9 @@ var initTrialView = function(tools, objects, focus, competitors, trainingSequenc
 
   // count objects
   var j = 0;
+  
+  // count scores
+  var scores = 0;
 
   // load the first tool & object
   $("#robiX-tool").html('<img src="img/' + tools[j] + '.png" width="150px"/>');
@@ -107,7 +110,7 @@ var initTrialView = function(tools, objects, focus, competitors, trainingSequenc
       // robiX stays there for some time then moves back
       setTimeout(function() {
         $("#robiX-image").attr("src", "img/robiX.png");
-        $("#robiX").stop().animate({ 
+        $("#robiX").stop().animate({
           left: -320
         }, 1000);
       }, 2500);
@@ -125,15 +128,17 @@ var initTrialView = function(tools, objects, focus, competitors, trainingSequenc
         $("#bubble").fadeIn("slow");
         
         moveMouthStart();
-        moveMouthStop(1959);
+        moveMouthStop(1799);
       }, 5000);
 
       /* todo: 
-      * - play sound ("wo hat er den hammer hingelegt?"
+      * - play sound 
       */
 
       // display sentence which the participant is supposed to say
       setTimeout(function() {
+        // make sure that RobiY smiles again
+        $("#robiY-image").attr("src", "img/robiY-armdown.png");
         $("#sentence").html("<br><br>" + constructSentence(tools[j], objects[j]));
         $("#sentence").fadeIn("slow");
       }, 6500);
@@ -161,6 +166,16 @@ var initTrialView = function(tools, objects, focus, competitors, trainingSequenc
           top: 180,
           left: 650
         });
+        
+        // count points!
+        scores++;
+        $("#scores-number").html(scores);
+        $("#scores-number").animate({top:'-=20px'}, 150);
+        $("#scores-number").animate({top:'+=20px'}, 150);
+        $("#scores-number").animate({top:'-=10px'}, 110);
+        $("#scores-number").animate({top:'+=10px'}, 110);
+        $("#scores-number").animate({top:'-=5px'}, 90);
+        $("#scores-number").animate({top:'+=5px'}, 90);
       }, 2000);
 
       // leaves the room with the tool
@@ -201,6 +216,8 @@ var initTrialView = function(tools, objects, focus, competitors, trainingSequenc
             $("#start-exp-btn").on('click', function() {
               $("#ready-to-take-off-screen").fadeOut();
             });
+            scores = 0;
+            $("#scores-number").html(scores);
           }
           $("#object").html('<img src="img/' + objects[j] + '.png" width="180px"/>');
           $("#sign").html("&larr; " + firstCap(objects[j]));
