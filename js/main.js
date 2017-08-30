@@ -14,6 +14,32 @@ var experimentObjects = ["beele", "meele", "beele", "meele", "beele", "meele", "
 var experimentFocus = ["background", "narrow", "broad", "contrastive", "narrow", "broad", "contrastive", "background"]
 var experimentCompetitors = ["hammer", "na", "na", "beele", "na", "na", "meele", "amboss"];
 
+// randomise the experiment items lists
+var counter = experimentObjects.length-1;
+while (counter > -1) {
+
+  // draw random number
+  let randomIndex = Math.floor(Math.random() * counter);
+  
+  // swap item at counter with item at random index
+  let tempTool = experimentTools[counter];
+  let tempObject = experimentObjects[counter];
+  let tempFocus = experimentFocus[counter];
+  let tempCompetitor = experimentCompetitors[counter];
+  	
+  experimentTools[counter] = experimentTools[randomIndex];
+  experimentTools[randomIndex] = tempTool;
+  experimentObjects[counter] = experimentObjects[randomIndex];
+  experimentObjects[randomIndex] = tempObject;
+  experimentFocus[counter] = experimentFocus[randomIndex];
+  experimentFocus[randomIndex] = tempFocus;
+  experimentCompetitors[counter] = experimentCompetitors[randomIndex];
+  experimentCompetitors[randomIndex] = tempCompetitor;
+	
+  counter--;
+}
+
+
 var tools = trainingTools.concat(experimentTools);
 var objects = trainingObjects.concat(experimentObjects);
 var focus = trainingFocus.concat(experimentFocus);
@@ -35,3 +61,6 @@ exp.getNextView = function() {
 exp.init = function() {
 	this.view = initIntroductionView();
 };
+
+
+

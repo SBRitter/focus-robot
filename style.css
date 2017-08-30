@@ -6,6 +6,10 @@ html, body {
   font-size: 16px !important;
 }
 
+.btn {
+  font-size: 16px !important;
+}
+
 .container {
   width: 65% !important;
   margin-top: 100px;
@@ -46,7 +50,7 @@ html, body {
   left: 850px;
   top: 420px;
   width: 150px;
-  background-image: url("img/sign.png");
+  background-image: url("img/misc/sign.png");
   background-repeat: no-repeat;
   background-size: contain;
   text-align: center;
@@ -72,7 +76,7 @@ html, body {
   top: 30px;
   width: 300px;
   height: 300px;
-  background-image: url("img/thought_bubble.png");
+  background-image: url("img/misc/thought_bubble.png");
   background-repeat: no-repeat;
   background-size: contain;
   z-index: 102;
@@ -119,7 +123,7 @@ html, body {
   bottom: 20px;
   width: 180px;
   height: 180px;
-  background-image: url("img/scores_border.png");
+  background-image: url("img/misc/scores_border.png");
   background-repeat: no-repeat;
   background-size: contain;
   text-align: center;

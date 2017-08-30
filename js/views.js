@@ -68,8 +68,8 @@ var initTrialView = function(tools, objects, focus, competitors, trainingSequenc
   $('#main').html(rendered);
 
   // load initial robi pictures
-  $("#robiX").html('<img src="img/robiX.png" width="300px" id="robiX-image"/>');
-  $("#robiY").html('<img src="img/robiY-armdown.png" width="300px" id="robiY-image"/>');
+  $("#robiX").html('<img src="img/robots/robiX.png" width="300px" id="robiX-image"/>');
+  $("#robiY").html('<img src="img/robots/robiY-armdown.png" width="300px" id="robiY-image"/>');
 
   // count objects
   var j = 0;
@@ -78,8 +78,8 @@ var initTrialView = function(tools, objects, focus, competitors, trainingSequenc
   var scores = 0;
 
   // load the first tool & object
-  $("#robiX-tool").html('<img src="img/' + tools[j] + '.png" width="150px"/>');
-  $("#object").html('<img src="img/' + objects[j] + '.png" width="180px"/>');
+  $("#robiX-tool").html('<img src="img/tools/' + tools[j] + '.png" width="150px"/>');
+  $("#object").html('<img src="img/objects/' + objects[j] + '.png" width="180px"/>');
   $("#sign").html("&larr; " + firstCap(objects[j]));
 
   // keypress actions (1, 2, 3)
@@ -100,7 +100,7 @@ var initTrialView = function(tools, objects, focus, competitors, trainingSequenc
       setTimeout(function() {
         /* very important for use in firefox: alter src attribute
         instead of hide/show of div or .html() */
-        $("#robiX-image").attr("src", "img/robiX-armout.png");
+        $("#robiX-image").attr("src", "img/robots/robiX-armout.png");
         $("#robiX-tool").stop().css({
           top: 230,
           left: 700
@@ -109,7 +109,7 @@ var initTrialView = function(tools, objects, focus, competitors, trainingSequenc
 
       // robiX stays there for some time then moves back
       setTimeout(function() {
-        $("#robiX-image").attr("src", "img/robiX.png");
+        $("#robiX-image").attr("src", "img/robots/robiX.png");
         $("#robiX").stop().animate({
           left: -320
         }, 1000);
@@ -138,7 +138,7 @@ var initTrialView = function(tools, objects, focus, competitors, trainingSequenc
       // display sentence which the participant is supposed to say
       setTimeout(function() {
         // make sure that RobiY smiles again
-        $("#robiY-image").attr("src", "img/robiY-armdown.png");
+        $("#robiY-image").attr("src", "img/robots/robiY-armdown.png");
         $("#sentence").html("<br><br>" + constructSentence(tools[j], objects[j]));
         $("#sentence").fadeIn("slow");
       }, 6500);
@@ -156,12 +156,12 @@ var initTrialView = function(tools, objects, focus, competitors, trainingSequenc
 
       // gets the tool
       setTimeout(function() {
-        $("#robiY-image").attr("src", "img/robiY-armout.png");
+        $("#robiY-image").attr("src", "img/robots/robiY-armout.png");
       }, 1000);
 
       // holds it up in the air
       setTimeout(function() {
-        $("#robiY-image").attr("src", "img/robiY-armup.png");
+        $("#robiY-image").attr("src", "img/robots/robiY-armup.png");
         $("#robiX-tool").css({
           top: 180,
           left: 650
@@ -176,7 +176,7 @@ var initTrialView = function(tools, objects, focus, competitors, trainingSequenc
         $("#scores-number").animate({top:'+=10px'}, 110);
         $("#scores-number").animate({top:'-=5px'}, 90);
         $("#scores-number").animate({top:'+=5px'}, 90);
-      }, 2000);
+      }, 1500);
 
       // leaves the room with the tool
       setTimeout(function() {
@@ -188,20 +188,20 @@ var initTrialView = function(tools, objects, focus, competitors, trainingSequenc
             left: -300,
             top: 180
           }, 1000);
-      }, 3000);
+      }, 2500);
 
       setTimeout(function() {
           $("#robiX-tool").stop().animate({
             top: 200
           }, 0);
-      }, 4000);
+      }, 3500);
 
     } else if (e.keyCode == 51) { // key '3'
 
       $("#curtain-wall").fadeIn("fast")
       
       setTimeout(function() {
-        $("#robiY-image").attr("src", "img/robiY-armdown.png");
+        $("#robiY-image").attr("src", "img/robots/robiY-armdown.png");
 
         /* get a new object & and a new tool
         go to next screen if no more objects available*/
@@ -219,7 +219,7 @@ var initTrialView = function(tools, objects, focus, competitors, trainingSequenc
             scores = 0;
             $("#scores-number").html(scores);
           }
-          $("#object").html('<img src="img/' + objects[j] + '.png" width="180px"/>');
+          $("#object").html('<img src="img/objects/' + objects[j] + '.png" width="180px"/>');
           $("#sign").html("&larr; " + firstCap(objects[j]));
         } else {
           // when all objects are through, go to next view
@@ -227,7 +227,7 @@ var initTrialView = function(tools, objects, focus, competitors, trainingSequenc
         }
 
         if (j < tools.length) {
-          $("#robiX-tool").html('<img src="img/' + tools[j] + '.png" width="150px"/>'); 
+          $("#robiX-tool").html('<img src="img/tools/' + tools[j] + '.png" width="150px"/>'); 
         } else {
           console.log("no more tools.");
         }
@@ -285,30 +285,32 @@ function firstCap(string) {
 function populateBubble(focus, tool, object, competitor) {
   $("#bubble-content").css({top: -30});
   if (focus === "background") {
-    $("#bubble-content").css({top: -100});
-    $("#bubble-content").html("<div style='position: relative; top: 40px'><img src='img/" + competitor + ".png' width='100px'/></div>" +
-      "<img src='img/" + object + ".png' width='100px'/><br>?");
+    $("#bubble-content").css({
+      top: -100
+    });
+    $("#bubble-content").html("<div style='position: relative; top: 40px'><img src='img/tools/" + competitor + ".png' width='100px'/></div>" +
+      "<img src='img/objects/" + object + ".png' width='100px'/><br>?");
   } else if (focus === "broad") {
      $("#bubble-content").html("<br>?");
   } else if (focus === "narrow") {
-    $("#bubble-content").html("<img src='img/" + tool + ".png' width='100px'/>" + "<br>wo?");
+    $("#bubble-content").html("<img src='img/tools/" + tool + ".png' width='100px'/>" + "<br>wo?");
   } else if (focus === "contrastive") {
     $("#bubble-content").css({top: -100});
-    $("#bubble-content").html("<div style='position: relative; top: 40px'><img src='img/" + tool + ".png' width='100px'/></div>" +
-      "<img src='img/" + competitor + ".png' width='100px'/><br>?");
+    $("#bubble-content").html("<div style='position: relative; top: 40px'><img src='img/tools/" + tool + ".png' width='100px'/></div>" +
+      "<img src='img/objects/" + competitor + ".png' width='100px'/><br>?");
   }
 }
 
 moveMouthStart = function() {
   mouthInterval = setInterval(function() {
-    setTimeout(function() { $("#robiY-image").attr("src", "img/robiY-talking1.png"); }, 75);
-    setTimeout(function() { $("#robiY-image").attr("src", "img/robiY-talking2.png"); }, 150);
+    setTimeout(function() { $("#robiY-image").attr("src", "img/robots/robiY-talking1.png"); }, 75);
+    setTimeout(function() { $("#robiY-image").attr("src", "img/robots/robiY-talking2.png"); }, 150);
   }, 225);
 }
 
 moveMouthStop = function(timeLag) {
   setTimeout(function() {
-    $("#robiY-image").attr("src", "img/robiY-armdown.png");
+    $("#robiY-image").attr("src", "img/robots/robiY-armdown.png");
     clearTimeout(mouthInterval);
    }, timeLag);
 }
