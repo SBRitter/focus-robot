@@ -288,7 +288,7 @@ function populateBubble(focus, tool, object, competitor) {
     $("#bubble-content").css({
       top: -100
     });
-    $("#bubble-content").html("<div style='position: relative; top: 40px'><img src='img/tools/" + competitor + ".png' width='100px'/></div>" +
+    $("#bubble-content").html("<div style='position: relative; top: 44px'><img src='img/tools/" + competitor + ".png' width='100px'/></div>" +
       "<img src='img/objects/" + object + ".png' width='100px'/><br>?");
   } else if (focus === "broad") {
      $("#bubble-content").html("<br>?");
@@ -296,7 +296,7 @@ function populateBubble(focus, tool, object, competitor) {
     $("#bubble-content").html("<img src='img/tools/" + tool + ".png' width='100px'/>" + "<br>wo?");
   } else if (focus === "contrastive") {
     $("#bubble-content").css({top: -100});
-    $("#bubble-content").html("<div style='position: relative; top: 40px'><img src='img/tools/" + tool + ".png' width='100px'/></div>" +
+    $("#bubble-content").html("<div style='position: relative; top: 44px'><img src='img/tools/" + tool + ".png' width='100px'/></div>" +
       "<img src='img/objects/" + competitor + ".png' width='100px'/><br>?");
   }
 }

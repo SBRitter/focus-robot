@@ -5,14 +5,14 @@ $(document).ready(function(){
 var exp = {};
 
 var trainingTools = ["hammer", "amboss"];
-var trainingObjects = ["beele", "meele"];
+var trainingObjects = ["leele", "woose"];
 var trainingFocus = ["contrastive", "background"];
-var trainingCompetitors = ["meele", "hammer"];
+var trainingCompetitors = ["noole", "schraube"];
 
 var experimentTools = ["amboss", "hammer", "amboss", "hammer", "amboss", "hammer", "amboss", "hammer"];
-var experimentObjects = ["beele", "meele", "beele", "meele", "beele", "meele", "beele", "meele"];
+var experimentObjects = ["naane", "neene", "naane", "neene", "naane", "neene", "naane", "neene"];
 var experimentFocus = ["background", "narrow", "broad", "contrastive", "narrow", "broad", "contrastive", "background"]
-var experimentCompetitors = ["hammer", "na", "na", "beele", "na", "na", "meele", "amboss"];
+var experimentCompetitors = ["hammer", "na", "na", "naane", "na", "na", "neene", "amboss"];
 
 // randomise the experiment items lists
 var counter = experimentObjects.length-1;
