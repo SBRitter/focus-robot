@@ -5,9 +5,9 @@ $(document).ready(function(){
 var exp = {};
 
 var trainingTools = ["hammer", "amboss"];
-var trainingObjects = ["leele", "woose"];
+var trainingObjects = ["weele", "woose"];
 var trainingFocus = ["contrastive", "background"];
-var trainingCompetitors = ["noole", "schraube"];
+var trainingCompetitors = ["laale", "schraube"];
 
 var experimentTools = ["amboss", "hammer", "amboss", "hammer", "amboss", "hammer", "amboss", "hammer"];
 var experimentObjects = ["naane", "neene", "naane", "neene", "naane", "neene", "naane", "neene"];

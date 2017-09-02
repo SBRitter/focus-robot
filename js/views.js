@@ -79,8 +79,8 @@ var initTrialView = function(tools, objects, focus, competitors, trainingSequenc
 
   // load the first tool & object
   $("#robiX-tool").html('<img src="img/tools/' + tools[j] + '.png" width="150px"/>');
-  $("#object").html('<img src="img/objects/' + objects[j] + '.png" width="180px"/>');
-  $("#sign").html("&larr; " + firstCap(objects[j]));
+  $("#object").html('<img src="img/objects/' + objects[j] + '.png" width="250px"/>');
+  $("#sign").html("&#11019 " + firstCap(objects[j]));
 
   // keypress actions (1, 2, 3)
   $(document).keydown(function(e){
@@ -219,8 +219,8 @@ var initTrialView = function(tools, objects, focus, competitors, trainingSequenc
             scores = 0;
             $("#scores-number").html(scores);
           }
-          $("#object").html('<img src="img/objects/' + objects[j] + '.png" width="180px"/>');
-          $("#sign").html("&larr; " + firstCap(objects[j]));
+          $("#object").html('<img src="img/objects/' + objects[j] + '.png" width="250px"/>');
+          $("#sign").html("&#11019 " + firstCap(objects[j]));
         } else {
           // when all objects are through, go to next view
           exp.getNextView();
