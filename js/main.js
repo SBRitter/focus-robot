@@ -4,10 +4,10 @@ $(document).ready(function(){
 
 var exp = {};
 
-var trainingTools = ["hammer", "amboss"];
-var trainingObjects = ["weele", "woose"];
+var trainingTools = ["schaufel", "schraube"];
+var trainingObjects = ["leewe", "moowe"];
 var trainingFocus = ["contrastive", "background"];
-var trainingCompetitors = ["laale", "schraube"];
+var trainingCompetitors = ["waawe", "besen"];
 
 var experimentTools = ["amboss", "hammer", "amboss", "hammer", "amboss", "hammer", "amboss", "hammer"];
 var experimentObjects = ["naane", "neene", "naane", "neene", "naane", "neene", "naane", "neene"];

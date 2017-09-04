@@ -78,7 +78,7 @@ var initTrialView = function(tools, objects, focus, competitors, trainingSequenc
   var scores = 0;
 
   // load the first tool & object
-  $("#robiX-tool").html('<img src="img/tools/' + tools[j] + '.png" width="150px"/>');
+  $("#robiX-tool").html('<img src="img/tools/' + tools[j] + '.png" width="300px"/>');
   $("#object").html('<img src="img/objects/' + objects[j] + '.png" width="250px"/>');
   $("#sign").html("&#11019 " + firstCap(objects[j]));
 
@@ -89,7 +89,7 @@ var initTrialView = function(tools, objects, focus, competitors, trainingSequenc
 
       // robiX enters the room with tool
       $("#robiX-tool").animate({ 
-        left: 680
+        left: 640
       }, 1000);
 
       $("#robiX").animate({ 
@@ -103,7 +103,7 @@ var initTrialView = function(tools, objects, focus, competitors, trainingSequenc
         $("#robiX-image").attr("src", "img/robots/robiX-armout.png");
         $("#robiX-tool").stop().css({
           top: 230,
-          left: 700
+          left: 680
         });
       }, 1500);
 
@@ -111,7 +111,7 @@ var initTrialView = function(tools, objects, focus, competitors, trainingSequenc
       setTimeout(function() {
         $("#robiX-image").attr("src", "img/robots/robiX.png");
         $("#robiX").stop().animate({
-          left: -320
+          left: -390
         }, 1000);
       }, 2500);
 
@@ -150,7 +150,7 @@ var initTrialView = function(tools, objects, focus, competitors, trainingSequenc
       
       // second robi moves to the object
       $("#robiY").stop().animate({ 
-        left: 520,
+        left: 540,
         top: 220
       }, 1000);
 
@@ -164,7 +164,7 @@ var initTrialView = function(tools, objects, focus, competitors, trainingSequenc
         $("#robiY-image").attr("src", "img/robots/robiY-armup.png");
         $("#robiX-tool").css({
           top: 180,
-          left: 650
+          left: 620
         });
         
         // count points!
@@ -181,11 +181,11 @@ var initTrialView = function(tools, objects, focus, competitors, trainingSequenc
       // leaves the room with the tool
       setTimeout(function() {
           $("#robiX-tool").stop().animate({ 
-            left: -160,
+            left: -280,
             top: 140
-          }, 1000);
+          }, 980);
           $("#robiY").stop().animate({ 
-            left: -300,
+            left: -390,
             top: 180
           }, 1000);
       }, 2500);
@@ -227,7 +227,7 @@ var initTrialView = function(tools, objects, focus, competitors, trainingSequenc
         }
 
         if (j < tools.length) {
-          $("#robiX-tool").html('<img src="img/tools/' + tools[j] + '.png" width="150px"/>'); 
+          $("#robiX-tool").html('<img src="img/tools/' + tools[j] + '.png" width="300px"/>'); 
         } else {
           console.log("no more tools.");
         }
