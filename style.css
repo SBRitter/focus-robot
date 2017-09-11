@@ -11,10 +11,10 @@ html, body {
 }
 
 .container {
-  width: 65% !important;
+  width: 900px !important;
   margin-top: 100px;
   padding: 0px 0px 0px 0px !important;
-  margin-left: 350px !important;
+  margin-left: 500px !important;
 }
 
 #robiY {
@@ -41,7 +41,7 @@ html, body {
 
 #object {
   position: absolute;
-  left: 645px;
+  left: 795px;
   top: 270px;
 }
 
@@ -55,7 +55,7 @@ html, body {
   background-repeat: no-repeat;
   background-size: contain;
   text-align: center;
-  font-size: 28px;
+  font-size: 26px;
   color: black;
   box-shadow: 3px 3px 3px #222;
 }
@@ -73,7 +73,7 @@ html, body {
 
 #bubble {
   position: absolute;
-  left: 250px;
+  left: 350px;
   top: 30px;
   width: 300px;
   height: 300px;
@@ -120,8 +120,8 @@ html, body {
 
 #score {
   position: fixed;
-  right: 20px;
-  bottom: 20px;
+  left: 1200px;
+  top: 600px;
   width: 180px;
   height: 180px;
   background-image: url("img/misc/scores_border.png");
@@ -136,4 +136,11 @@ html, body {
   top: 25px;
   font-size: 54px;
   color: darkred;
+}
+
+#door {
+  position: absolute;
+  left: 570px;
+  top: 90px;
+  z-index: -1;
 }

@@ -5,110 +5,113 @@
     <title>-</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-    
+
     <!-- js dependencies -->
-	  <script src="node_modules/jquery/dist/jquery.min.js"></script>
-	  <script src="node_modules/mustache/mustache.min.js"></script>
-	
-	  <!-- js -->
-	  <script src="js/main.js"></script>
-	  <script src="js/views.js"></script>
-	  <!--script src="js/exp.js"></script-->
-	
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/mustache/mustache.min.js"></script>
+
+    <!-- js -->
+    <script src="js/main.js"></script>
+    <script src="js/views.js"></script>
+
   </head>
-  
+
   <body>
 
-		<div class="container">
-		
-			<main id="main"></main>
-		
-			<script id="intro-templ" type="x-tmpl-mustache">
-				<div class="info-templ">
-					<p>Herzlich Willkommen!</p>
-					<p>Danke, dass du dir die Zeit für unser Experiment nimmst. Zunächst einmal wollen wir dir ein paar Sachen vorstellen.</p>
-					<button type="submit" id="start-presentation-btn" class="btn btn-primary">Weiter</button>
-				</div>
-			</script>
-	
-			<script id="presentation-templ" type="x-tmpl-mustache">
-				<div class="info-templ">
-		
-					<div id="introduce-robots">
-						<p>Das sind die beiden Roboter X und Y. X verteilt gerne Sachen in der Werkstatt, die Y dann suchen muss. Y ist ziemlich schusselig -- deshalb soll er verschrottet werden. Du musst ihm helfen, die Sachen wiederzufinden, die X verteilt hat.</p>
-					</div>
-		
-					<div id="introduce-workshop" style="display: none;">
-						<p>Das ist die Roboter-Werkstatt, in der X und Y gebaut worden sind. Und hier arbeiten sie auch. Hier gibt es allerlei Gegenstände. Das Werkzeug ist gewöhnliches Werkzeug. Außerdem gibt es ein paar verrückte Gerätschaften, die du noch nicht kennst...</p>
-				
-						<p>Jetzt lernst du alle Gegenstände einmal kennen.</p>
-					</div>
-		
-					<div id="introduce-all-objects" style="display: none;"></div>
+    <div class="container">
 
-					<div id="introduction-end" style="display: none;">
-						Gleich wird X immer zuerst in die Werkstatt kommen und ein Werkzeug auf einem der Gegenstände ablegen, die du gerade kennengelernt hast. Wenn er den Raum verlassen hat, kommt Y hinein und wird dich fragen, wo er das Werkzeug finden kannst. Leider ist Y wie gesagt ein bisschen schusselig und alt. Diese Generation von Robotern verstehen nur einfache Aussagesätze. Er kommt durcheinander, wenn man  komplizierte Sätze sagt. Bitte antworte deshalb immer mit dem Satz der oben eingeblendet wird. Alles andere versteht Y sehr gut, wie z.B. deine Sprechmelodie.
-						<br><br>
-						Bist du bereit für ein kleines Training?
-						<br><br>
-						<button type="submit" id="continue-btn" class="btn btn-primary">Ja, los!</button>
-					</div>
-				
-				</div>	
-			</script>
-		
-			<script id="trial-templ" type="x-tmpl-mustache">
-			
-				<div class="trial-templ">
-					
-					<div id="left-wall" style="z-index: 100; position: relative; float: left;">
-						<img src="img/misc/left-wall2.jpg" width="75px">
-					</div>
-					
-					<div id="workshop">
-						<img src="img/misc/workshop2.jpg" width="800px">
-					</div>
-				
-					<div id="robiX"></div>
-					
-					<div id="robiY"></div>
-									
-					<div id="object"></div>
-					
-					<div id="sign"></div>	
+      <main id="main"></main>
 
-					<div id="robiX-tool"></div>
-					
-					<div id="sentence"></div>
-					
-					<div id="bubble">
-					  <div id="bubble-content"></div>
-					</div>
-					
-					<div id="ready-to-take-off-screen">
-					  Das war das Training. Bist du bereit für das Experiment?
-					  <br><br>
-		        <button type="submit" id="start-exp-btn" class="btn btn-primary">Ja, los!</button>
-		      </div>
-					
-					<div id="curtain-wall"></div>
-					
-					<div id="score">
-					  Punkte
-					  <div id="scores-number">0</div>
-					</div>
-					
-			  </div>
-			  
-			</script>
-			
-		  <script id="end-templ" type="x-tmpl-mustache">
-				<div class="info-templ">
-					<p>Das war's! :-) Vielen Dank für deine Teilnahme!</p>
-				</div>
-			</script>
-	
-		</div>
-  
+      <script id="intro-templ" type="x-tmpl-mustache">
+        <div class="info-templ">
+          <p>Herzlich Willkommen!</p>
+          <p>Danke, dass du dir die Zeit für unser Experiment nimmst. Zunächst einmal wollen wir dir ein paar Sachen vorstellen.</p>
+          <button type="submit" id="start-presentation-btn" class="btn btn-primary">Weiter</button>
+        </div>
+      </script>
+
+      <script id="presentation-templ" type="x-tmpl-mustache">
+        <div class="info-templ">
+
+          <div id="introduce-robots">
+            <p>Das sind die beiden Roboter X und Y. X verteilt gerne Sachen in der Werkstatt, die Y dann suchen muss. Y ist ziemlich schusselig -- deshalb soll er verschrottet werden. Du musst ihm helfen, die Sachen wiederzufinden, die X verteilt hat.</p>
+          </div>
+
+          <div id="introduce-workshop" style="display: none;">
+            <p>Das ist die Roboter-Werkstatt, in der X und Y gebaut worden sind. Und hier arbeiten sie auch. Hier gibt es allerlei Gegenstände. Das Werkzeug ist gewöhnliches Werkzeug. Außerdem gibt es ein paar verrückte Gerätschaften, die du noch nicht kennst...</p>
+
+            <p>Jetzt lernst du alle Gegenstände einmal kennen.</p>
+          </div>
+
+          <div id="introduce-all-objects" style="display: none;"></div>
+
+          <div id="introduction-end" style="display: none;">
+            Gleich wird X immer zuerst in die Werkstatt kommen und ein Werkzeug auf einem der Gegenstände ablegen, die du gerade kennengelernt hast. Wenn er den Raum verlassen hat, kommt Y hinein und wird dich fragen, wo er das Werkzeug finden kannst. Leider ist Y wie gesagt ein bisschen schusselig und alt. Diese Generation von Robotern verstehen nur einfache Aussagesätze. Er kommt durcheinander, wenn man  komplizierte Sätze sagt. Bitte antworte deshalb immer mit dem Satz der oben eingeblendet wird. Alles andere versteht Y sehr gut, wie z.B. deine Sprechmelodie.
+            <br><br>
+            Bist du bereit für ein kleines Training?
+            <br><br>
+            <button type="submit" id="continue-btn" class="btn btn-primary">Ja, los!</button>
+          </div>
+        
+        </div>  
+      </script>
+    
+      <script id="trial-templ" type="x-tmpl-mustache">
+      
+        <div class="trial-templ">
+          
+          <div id="left-wall" style="z-index: 100; position: relative; float: left;">
+            <img src="img/misc/left-wall2.jpg" width="75px">
+          </div>
+          
+          <div id="door">
+            <img id="door-img" src="img/misc/door.jpg" style="height: 500px" >
+          </div>
+
+          <div id="workshop">
+            <img src="img/misc/workshop2.png" width="800px">
+          </div>
+
+          <div id="robiX"></div>
+
+          <div id="robiY"></div>
+
+          <div id="sign"></div>  
+
+          <div id="object"></div>
+
+          <div id="robiX-tool"></div>
+
+          <div id="sentence"></div>
+
+          <div id="bubble">
+            <div id="bubble-content"></div>
+          </div>
+
+          <div id="ready-to-take-off-screen">
+            Das war das Training. Bist du bereit für das Experiment?
+            <br><br>
+            <button type="submit" id="start-exp-btn" class="btn btn-primary">Ja, los!</button>
+          </div>
+
+          <div id="curtain-wall"></div>
+
+          <div id="score">
+            Punkte
+            <div id="scores-number">0</div>
+          </div>
+
+        </div>
+
+      </script>
+
+      <script id="end-templ" type="x-tmpl-mustache">
+        <div class="info-templ">
+          <p>Das war's! :-) Vielen Dank für deine Teilnahme!</p>
+        </div>
+      </script>
+
+    </div>
+
   </body>
 </html>
