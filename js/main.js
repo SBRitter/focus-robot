@@ -19,10 +19,10 @@ var trainingObjects = [
 ];
 
 var trainingFocus = [
-  "broad", "contrastive",
+  "broad", "corrective",
   "background", "narrow", 
   "broad", "background", 
-  "narrow", "contrastive"
+  "narrow", "corrective"
 ];
 
 var trainingCompetitors = [
@@ -214,7 +214,6 @@ while (counter > -1) {
   counter--;
 }
 
-
 var tools = trainingTools.concat(experimentTools);
 var objects = trainingObjects.concat(experimentObjects);
 var focus = trainingFocus.concat(experimentFocus);
@@ -222,10 +221,24 @@ var competitors = trainingCompetitors.concat(experimentCompetitors);
 
 var trainingSequences = 8;
 
+var introductionItems = [
+  // test objects
+  "neene", "naane", "maane", "loone", "laane", "waane", "noome", "meeme", "moome", "seeme",
+  "soome", "woome", "neese", "meese", "maase", "seese", "saase", "woose", "noole", "naale",
+  "leele", "loole", "laale", "weele", "moowe", "soowe", "saawe", "leewe", "weewe", "waawe",
+  // training objects
+  "stuhl", "hocker", "tisch", "kommode",
+  // test tools
+  "amboss", "besen", "bohrer", "bürste", "feile", "hammer", "nagel", "pinsel", "rolle", "säge",
+  "schaufel", "schere", "schraube", "zange", "zirkel",
+  // training tools
+  "lineal", "stift", "schraubenschlüssel", "leiter"
+];
+
 /* view handler */
 exp.getNextView = function() {
   if (this.view.name === 'intro') {
-    this.view = initPresentationView();
+    this.view = initPresentationView(introductionItems);
   } else if (this.view.name === 'presentation') {
     this.view = initTrialView(tools, objects, focus, competitors, trainingSequences);
   } else if (this.view.name === 'trial') {
