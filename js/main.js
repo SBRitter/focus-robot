@@ -247,7 +247,7 @@ exp.getNextView = function() {
 }
 
 exp.init = function() {
-	this.view = initIntroductionView();
+  this.view = initIntroductionView();
 };
 
 
