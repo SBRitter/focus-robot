@@ -221,8 +221,7 @@ var randomize = function(tools, objects, focus, competitors) {
   // if randomisation is not valid, get a new one!
   for (var k = 0; k < tools.length-1; k++) {
     if (tools[k] === tools[k+1] // Adjacent tools must not be the same
-      || objects[k] === objects[k+1] // Adjacent objects must not be the same
-      /*|| objects[k].charAt(0) === objects[k+1].charAt(0)*/) { // Adjacent objects must not start with the same letter
+      || objects[k] === objects[k+1] ) {// Adjacent objects must not be the same
       randomize(experimentTools, experimentObjects, experimentFocus, experimentCompetitors);
     } else {
       experimentTools = tools;
@@ -261,7 +260,9 @@ var introductionItems = [
 
 /* view handler */
 exp.getNextView = function() {
-  if (this.view.name === 'intro') {
+  if (this.view.name === 'config') {
+    this.view = initIntroductionView();
+  } else if (this.view.name === 'intro') {
     this.view = initPresentationView(introductionItems);
   } else if (this.view.name === 'presentation') {
     this.view = initTrialView(allTools, allObjects, allFocus, allCompetitors, trainingSequences);
@@ -271,7 +272,7 @@ exp.getNextView = function() {
 }
 
 exp.init = function() {
-  this.view = initIntroductionView();
+  this.view = initConfigView();
 };
 
 
