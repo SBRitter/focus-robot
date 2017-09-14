@@ -190,34 +190,58 @@ var experimentCompetitors = [
 ];
 
 // randomise the experiment items lists
-counter = experimentObjects.length-1;
-while (counter > -1) {
+var randomize = function(tools, objects, focus, competitors) {
 
-  // draw random number
-  let randomIndex = Math.floor(Math.random() * counter);
+  console.log("compiling new list");
+  counter = experimentObjects.length-1;
+  while (counter > -1) {
 
-  // swap item at counter with item at random index
-  let tempTool = experimentTools[counter];
-  let tempObject = experimentObjects[counter];
-  let tempFocus = experimentFocus[counter];
-  let tempCompetitor = experimentCompetitors[counter];
+    // draw random number
+    let randomIndex = Math.floor(Math.random() * counter);
 
-  experimentTools[counter] = experimentTools[randomIndex];
-  experimentTools[randomIndex] = tempTool;
-  experimentObjects[counter] = experimentObjects[randomIndex];
-  experimentObjects[randomIndex] = tempObject;
-  experimentFocus[counter] = experimentFocus[randomIndex];
-  experimentFocus[randomIndex] = tempFocus;
-  experimentCompetitors[counter] = experimentCompetitors[randomIndex];
-  experimentCompetitors[randomIndex] = tempCompetitor;
+    // swap item at counter with item at random index
+    let tempTool = tools[counter];
+    let tempObject = objects[counter];
+    let tempFocus = focus[counter];
+    let tempCompetitor = competitors[counter];
 
-  counter--;
+    tools[counter] = tools[randomIndex];
+    tools[randomIndex] = tempTool;
+    objects[counter] = objects[randomIndex];
+    objects[randomIndex] = tempObject;
+    focus[counter] = focus[randomIndex];
+    focus[randomIndex] = tempFocus;
+    competitors[counter] = competitors[randomIndex];
+    competitors[randomIndex] = tempCompetitor;
+
+    counter--;
+  }
+
+  // check for valid randomisation
+  // if randomisation is not valid, get a new one!
+  for (var k = 0; k < tools.length-1; k++) {
+    if (tools[k] === tools[k+1] // Adjacent tools must not be the same
+      || objects[k] === objects[k+1] // Adjacent objects must not be the same
+      /*|| objects[k].charAt(0) === objects[k+1].charAt(0)*/) { // Adjacent objects must not start with the same letter
+      randomize(experimentTools, experimentObjects, experimentFocus, experimentCompetitors);
+    } else {
+      experimentTools = tools;
+      experimentObjects = objects;
+      experimentFocus = focus;
+      experimentCompetitors = competitors;
+    }
+  }
 }
 
-var tools = trainingTools.concat(experimentTools);
-var objects = trainingObjects.concat(experimentObjects);
-var focus = trainingFocus.concat(experimentFocus);
-var competitors = trainingCompetitors.concat(experimentCompetitors);
+randomize(experimentTools, experimentObjects, experimentFocus, experimentCompetitors);
+
+console.log(experimentTools);
+console.log(experimentObjects);
+
+var allTools = trainingTools.concat(experimentTools);
+var allObjects = trainingObjects.concat(experimentObjects);
+var allFocus = trainingFocus.concat(experimentFocus);
+var allCompetitors = trainingCompetitors.concat(experimentCompetitors);
 
 var trainingSequences = 8;
 
@@ -240,7 +264,7 @@ exp.getNextView = function() {
   if (this.view.name === 'intro') {
     this.view = initPresentationView(introductionItems);
   } else if (this.view.name === 'presentation') {
-    this.view = initTrialView(tools, objects, focus, competitors, trainingSequences);
+    this.view = initTrialView(allTools, allObjects, allFocus, allCompetitors, trainingSequences);
   } else if (this.view.name === 'trial') {
     this.view = initEndView();
   }
