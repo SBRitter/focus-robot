@@ -219,7 +219,7 @@ var randomize = function(tools, objects, focus, competitors) {
 
   // check for valid randomisation
   // if randomisation is not valid, get a new one!
-  for (var k = 0; k < tools.length-1; k++) {
+  for (var k = 0; k < tools.length; k++) {
     if (tools[k] === tools[k+1] // Adjacent tools must not be the same
       || objects[k] === objects[k+1] ) {// Adjacent objects must not be the same
       randomize(experimentTools, experimentObjects, experimentFocus, experimentCompetitors);
@@ -228,6 +228,24 @@ var randomize = function(tools, objects, focus, competitors) {
       experimentObjects = objects;
       experimentFocus = focus;
       experimentCompetitors = competitors;
+
+      // save the data to a file
+      var dt = new Date($.now());
+      var fileName = dt.getFullYear() + "-" + (dt.getMonth()+1) + "-" + dt.getDate() + "_" 
+        + dt.getHours() + "-" + dt.getMinutes() + "-" + dt.getSeconds() + ".txt";
+      itemsList = "";
+
+      console.log(experimentTools.length);
+
+      for (var m = 0; m < experimentTools.length; m++) {
+        itemsList = itemsList + experimentObjects[m] + "," + experimentTools[m] + "," + experimentCompetitors[m] + "," + experimentFocus[m];
+        if (m < experimentTools.length-1) {
+          itemsList = itemsList + "\n";
+        }
+      }
+      var blob = new Blob([itemsList], {type: "text/plain;charset=utf-8"});
+      saveAs(blob, fileName);
+      break;
     }
   }
 }
@@ -261,7 +279,11 @@ var introductionItems = [
 /* view handler */
 exp.getNextView = function() {
   if (this.view.name === 'config') {
-    this.view = initIntroductionView();
+    if (skipIntro === "off") {
+      this.view = initIntroductionView();
+    } else if (skipIntro === "on") {
+      this.view = initTrialView(allTools, allObjects, allFocus, allCompetitors, trainingSequences);
+    }
   } else if (this.view.name === 'intro') {
     this.view = initPresentationView(introductionItems);
   } else if (this.view.name === 'presentation') {

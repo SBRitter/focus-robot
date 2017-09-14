@@ -9,6 +9,7 @@
     <!-- js dependencies -->
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="node_modules/mustache/mustache.min.js"></script>
+    <script src="node_modules/file-saver/FileSaver.min.js"></script>
 
     <!-- js -->
     <script src="js/main.js"></script>
@@ -25,23 +26,38 @@
       <script id="config-templ" type="x-tmpl-mustache">
         <div class="config-templ">
           
+          <h3>Konfiguration</h3>
+          <br>
+          
           <div class="form-group">
             <div class="checkbox">
-              <label><input type="checkbox" id="load-data">Daten von extern laden?</label>
+              <label><input type="checkbox" id="load-data">Daten von extern laden</label>
             </div>
           </div>
 
-          <div class="form-group">
-            <input type="file" id="data-path">
-            <p class="help-block">Daten einladen</p>
+          <div class="form-group" style="background: #DDD; padding: 10px; width: 300px; margin-left: 20px">
+            <p>Datei auswählen</p>
+            <input type="file" accept='text/plain' id="data-path" onchange="openFile(event)">
           </div>
 
+          <br>
+          <form class="form-inline">
           <div class="form-group">
-
-            Bei Trial <input type="text" id="start-trial" value="0" class="form-control" style="width:60px;"/> starten.
+            Bei Trial <input type="text" id="start-trial" value="0" class="form-control" style="width: 50px;"/> starten.<br>
+            <p style="color: grey">0 = Training nicht überspringen, mit erstem Trainings-Trial starten.<br>
+            1 = Training überspringen, mit erstem Test-Trial starten<br>
+            n = Training überspringen, mit n-tem Test-Trial starten.<br></p>
+          </div>
+          </form>
+          
+          <div class="form-group">
+            <div class="checkbox">
+              <label><input type="checkbox" id="skip-intro">Intro überspringen</label>
+            </div>
           </div>
           
-          <button type="submit" id="go-btn" class="btn btn-primary" style="font-size:14px !important;">Los</button>
+          <br><br>
+          <button type="submit" id="go-btn" class="btn btn-default" style="font-size:14px !important;">Ok</button>
         </div>
       </script>
 
@@ -150,7 +166,7 @@
 
           <div id="score">
             Punkte
-            <div id="scores-number">0</div>
+            <div id="scores-number"></div>
           </div>
 
         </div>
