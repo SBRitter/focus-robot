@@ -220,10 +220,14 @@ var randomize = function(tools, objects, focus, competitors) {
   // check for valid randomisation
   // if randomisation is not valid, get a new one!
   for (var k = 0; k < tools.length; k++) {
-    if (tools[k] === tools[k+1] // Adjacent tools must not be the same
-      || objects[k] === objects[k+1] ) {// Adjacent objects must not be the same
+    if (tools[k] == tools[k+1] // Adjacent tools must not be the same
+      || objects[k] == objects[k+1] ) {// Adjacent objects must not be the same
       randomize(experimentTools, experimentObjects, experimentFocus, experimentCompetitors);
-    } else {
+      break;
+    }
+    // if list is through and you're still in the loop
+    // you can choose this list write this to a file
+    if (k == tools.length-1) {
       experimentTools = tools;
       experimentObjects = objects;
       experimentFocus = focus;
@@ -245,7 +249,6 @@ var randomize = function(tools, objects, focus, competitors) {
       }
       var blob = new Blob([itemsList], {type: "text/plain;charset=utf-8"});
       saveAs(blob, fileName);
-      break;
     }
   }
 }
