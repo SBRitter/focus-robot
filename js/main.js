@@ -99,7 +99,7 @@ var experimentObjects = [
   "waane", "waane", "waane", "waane",
   "noome", "noome", "noome", "noome",
   "meeme", "meeme", "meeme", "meeme",
-  "moome", "meeme", "meeme", "meeme",
+  "moome", "moome", "moome", "moome",
   "seeme", "seeme", "seeme", "seeme",
   "soome", "soome", "soome", "soome",
   "woome", "woome", "woome", "woome",
