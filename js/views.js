@@ -162,13 +162,22 @@ var initTrialView = function(tools, objects, focus, competitors, trainingSequenc
     door("open");
 
     // robiX enters the room with tool
+    // 1. up
+    $("#robiX").animate({
+      top: 220
+    }, 1000);
     $("#robiX-tool").animate({ 
-      left: tool_destination
+      top: 200
     }, 1000);
-
-    $("#robiX").animate({ 
-      left: robiX_destination
-    }, 1000);
+    // 2. left
+    setTimeout(function() {
+      $("#robiX-tool").animate({ 
+        left: tool_destination
+      }, 1000);
+      $("#robiX").animate({
+        left: robiX_destination
+      }, 1000);
+    }, 1500)
 
     // robiX puts down the tool on the object
     setTimeout(function() {
@@ -181,21 +190,26 @@ var initTrialView = function(tools, objects, focus, competitors, trainingSequenc
       /* very important for use in firefox: alter src attribute
       instead of hide/show of div or .html() */
       $("#robiX-image").attr("src", "img/robots/robiX-armout.png");
-    }, 1500);
+    }, 2500);
 
     // robiX stays there for some time then moves back
     setTimeout(function() {
       $("#robiX-image").attr("src", "img/robots/robiX.png");
       $("#robiX").stop().animate({
-        left: -390
+        left: 90
+      }, 800);
+    }, 3000);
+    setTimeout(function() {
+      $("#robiX").stop().animate({
+        top: 1000
       }, 1000);
-    }, 2500);
+    }, 4000);
 
     
     // door closes
     setTimeout(function() {
       door("close");
-    }, 2700); 
+    }, 4000); 
 
     // robiY enters the scene (outside room) and asks the question
     setTimeout(function() {
@@ -292,8 +306,10 @@ var initTrialView = function(tools, objects, focus, competitors, trainingSequenc
 
     setTimeout(function() {
       $("#robiX-tool").stop().animate({
-        top: 200
+        top: 980,
+        left: 200
       }, 0);
+      
       // door closes
       door("close");
     }, 3000);
@@ -308,7 +324,29 @@ var initTrialView = function(tools, objects, focus, competitors, trainingSequenc
   * and the next trial is started
   */
   var thirdMovement = function() {
+  
+    // fancy transition
+    var firstTransitionColors = ["#BDDFDE","#C4B5DA","#CDDAB5", "#ECD6CA"];
+    var secondTransitionColors = ["#A4A8CD","#A4CCCD","#CDA4B0", "#A4CDB7"];
+    var firstTransitionColor = firstTransitionColors[Math.floor(Math.random() * firstTransitionColors.length)];
+    var secondTransitionColor = secondTransitionColors[Math.floor(Math.random() * secondTransitionColors.length)];
     $("#curtain-wall").fadeIn("slow");
+    setTimeout(function() {
+      $("#curtain-wall").css({
+        transition: 'background-color 1.7s ease-in', "background-color": firstTransitionColor
+      });
+    }, 200);
+    setTimeout(function() {
+      $("#curtain-wall").css({
+        transition: 'background-color 1.7s ease-in-out', "background-color": secondTransitionColor
+      });
+    }, 1500);
+    setTimeout(function() {
+      $("#curtain-wall").css({
+        transition: 'background-color 2s ease-in', "background-color": "#FFF"
+      });
+    }, 3000);
+    
     setTimeout(function() {
       $("#robiY-image").attr("src", "img/robots/robiY-armdown.png");
 
@@ -333,7 +371,7 @@ var initTrialView = function(tools, objects, focus, competitors, trainingSequenc
         
         setTimeout(function() {
           firstMovement();
-        }, 3000);
+        }, 4000);
       } else {
         // when all objects are through, go to next view
         exp.getNextView();
@@ -349,8 +387,8 @@ var initTrialView = function(tools, objects, focus, competitors, trainingSequenc
     }, 500);
 
     setTimeout(function() {
-      $("#curtain-wall").fadeOut("slow");
-    }, 3000)
+      $("#curtain-wall").fadeOut(2000);
+    }, 4000)
   }
 
   // keypress actions ('a', 'l')
@@ -361,8 +399,8 @@ var initTrialView = function(tools, objects, focus, competitors, trainingSequenc
       $("#sentence").hide();
       $("#bubble").hide();
       $("#robiX-tool").css({ 
-          left: -280,
-          top: 200
+          left: 200,
+          top: 980
         }, 980);
         $("#robiY").css({ 
           left: -390,
