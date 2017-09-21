@@ -395,7 +395,7 @@ var initTrialView = function(tools, objects, focus, competitors, trainingSequenc
   $(document).keydown(function(e){
     if (e.keyCode == 65) { // key 'a'
       secondMovement();
-    } else if (e.keyCode == 76) { // key '1' = rescue button
+    } else if (e.keyCode == 76) { // key 'l' = rescue button
       $("#sentence").hide();
       $("#bubble").hide();
       $("#robiX-tool").css({ 

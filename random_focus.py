@@ -141,6 +141,7 @@ class Quadruple:
   competitor = ""
 
 final_list = []
+times_randomised = 0
 
 for a in range(0, len(experimentObjects)):
   new_quadruple = Quadruple()
@@ -171,24 +172,30 @@ def check_randomisation(a_list):
     if (a_list[i].focus == a_list[i+1].focus):
       number_of_double_focus += 1
     if (i == len(a_list) - 2):
-      if (number_of_double_focus > 20):
+      if (number_of_double_focus > 25):
         print "found " + str(number_of_double_focus) + " pairs of focus. compiling new list."
         return "bad"
       else:
         return "good"
 
 final_list = randomise(final_list)
+times_randomised += 1
 list_random_order = "bad"
 while (list_random_order == "bad"):
   list_random_order = check_randomisation(final_list)
   if (list_random_order == "bad"):
     final_list = randomise(final_list)
+    times_randomised += 1
     
 for item in final_list:
   print item.object + "," + item.tool + "," + item.competitor + "," + item.focus
 
 file = codecs.open(sys.argv[1], 'w')
 for item in final_list:
-  file.write(item.object + "," + item.tool + "," + item.competitor + "," + item.focus + "\n")
+  file.write(item.object + "," + item.tool + "," + item.competitor + ",")
+  if (final_list.index(item) < len(final_list)-1):
+    file.write(item.focus + "\n")
 
 file.close()
+
+print "Randomised: " + str(times_randomised) + " times."
