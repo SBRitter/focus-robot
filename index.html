@@ -29,18 +29,21 @@
           <h3>Konfiguration</h3>
           <br>
 
+          <h4>Daten laden</h4>
           <div class="form-group">
-            <div class="checkbox">
-              <label><input type="checkbox" id="load-data">Daten von extern laden</label>
-            </div>
-          </div>
-
-          <div class="form-group" style="background: #DDD; padding: 10px; width: 300px; margin-left: 20px">
-            <p>Datei auswählen</p>
+            <p>Datentabelle auswählen...</p>
             <input type="file" accept='text/plain' id="data-path" onchange="openFile(event)">
           </div>
 
           <br>
+          <h4>Startpunkt wählen</h4>
+
+          <div class="form-group">
+            <div class="checkbox">
+              <label><input type="checkbox" id="skip-intro">Intro überspringen</label>
+            </div>
+          </div>
+
           <form class="form-inline">
           <div class="form-group">
             Bei Trial <input type="text" id="start-trial" value="0" class="form-control" style="width: 50px;"/> starten.<br>
@@ -49,12 +52,6 @@
             n = Training überspringen, mit n-tem Test-Trial starten.<br></p>
           </div>
           </form>
-
-          <div class="form-group">
-            <div class="checkbox">
-              <label><input type="checkbox" id="skip-intro">Intro überspringen</label>
-            </div>
-          </div>
 
           <br><br>
           <button type="submit" id="go-btn" class="btn btn-default" style="font-size:14px !important;">Ok</button>
