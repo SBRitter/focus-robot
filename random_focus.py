@@ -172,7 +172,7 @@ def check_randomisation(a_list):
     if (a_list[i].focus == a_list[i+1].focus):
       number_of_double_focus += 1
     if (i == len(a_list) - 2):
-      if (number_of_double_focus > 25):
+      if (number_of_double_focus > 18): # 18 is max. 15 % of the cases
         print "found " + str(number_of_double_focus) + " pairs of focus. compiling new list."
         return "bad"
       else:
@@ -192,9 +192,9 @@ for item in final_list:
 
 file = codecs.open(sys.argv[1], 'w')
 for item in final_list:
-  file.write(item.object + "," + item.tool + "," + item.competitor + ",")
+  file.write(item.object + "," + item.tool + "," + item.competitor + "," + item.focus)
   if (final_list.index(item) < len(final_list)-1):
-    file.write(item.focus + "\n")
+    file.write("\n")
 
 file.close()
 

@@ -241,6 +241,12 @@ var initTrialView = function(tools, objects, focus, competitors, trainingSequenc
         setTimeout(function() { speak(8) }, 200);
       }
       
+      // for EMA sweep control
+      $("#black-field").show();
+      setTimeout(function() {
+        $("#black-field").hide();
+      }, 500)
+      
     }, 7000);
 
     // display sentence which the participant is supposed to say
@@ -258,7 +264,13 @@ var initTrialView = function(tools, objects, focus, competitors, trainingSequenc
   var secondMovement = function() {
     $("#sentence").fadeOut("fast");
     $("#bubble").fadeOut("fast");
-    
+
+    // for EMA sweep control
+      $("#black-field").show();
+      setTimeout(function() {
+        $("#black-field").hide();
+      }, 500)
+
     // door opens
     door("open");
     
@@ -326,8 +338,8 @@ var initTrialView = function(tools, objects, focus, competitors, trainingSequenc
   var thirdMovement = function() {
   
     // fancy transition
-    var firstTransitionColors = ["#BDDFDE","#C4B5DA","#CDDAB5", "#ECD6CA"];
-    var secondTransitionColors = ["#A4A8CD","#A4CCCD","#CDA4B0", "#A4CDB7"];
+    var firstTransitionColors = ["#94c7c6","#b094d8","#b5c794", "#d6b6a5"];
+    var secondTransitionColors = ["848abd","#8abdbf","#b88796", "#8cc3a5"];
     var firstTransitionColor = firstTransitionColors[Math.floor(Math.random() * firstTransitionColors.length)];
     var secondTransitionColor = secondTransitionColors[Math.floor(Math.random() * secondTransitionColors.length)];
     $("#curtain-wall").fadeIn("slow");
@@ -362,16 +374,21 @@ var initTrialView = function(tools, objects, focus, competitors, trainingSequenc
           $("#ready-to-take-off-screen").show();
           $("#start-exp-btn").on('click', function() {
             $("#ready-to-take-off-screen").fadeOut();
+            $("#object").html('<img src="img/objects/' + objects[j] + '.png" width="250px"/>');
+            $("#sign").html(deDoubleVowel(firstCap(objects[j])));
+            setTimeout(function() {
+            firstMovement();
+          }, 3000);
           });
           scores = 0;
           $("#scores-number").html(scores);
+        } else {
+          $("#object").html('<img src="img/objects/' + objects[j] + '.png" width="250px"/>');
+          $("#sign").html(deDoubleVowel(firstCap(objects[j])));
+          setTimeout(function() {
+            firstMovement();
+          }, 4000);
         }
-        $("#object").html('<img src="img/objects/' + objects[j] + '.png" width="250px"/>');
-        $("#sign").html(deDoubleVowel(firstCap(objects[j])));
-        
-        setTimeout(function() {
-          firstMovement();
-        }, 4000);
       } else {
         // when all objects are through, go to next view
         exp.getNextView();
