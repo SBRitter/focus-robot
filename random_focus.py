@@ -190,7 +190,7 @@ while (list_random_order == "bad"):
 for item in final_list:
   print item.object + "," + item.tool + "," + item.competitor + "," + item.focus
 
-file = codecs.open(sys.argv[1], 'w')
+file = codecs.open(sys.argv[1], 'wb')
 for item in final_list:
   file.write(item.object + "," + item.tool + "," + item.competitor + "," + item.focus)
   if (final_list.index(item) < len(final_list)-1):
