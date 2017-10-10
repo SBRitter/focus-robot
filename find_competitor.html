@@ -1,51 +1,27 @@
 <html>
 <script>
-objects = ["Neene",
-	"Naane",
-	"Maane",
-	"Loone",
-	"Laane",
-	"Waane",
-	"Noome",
-	"Meeme",
-	"Moome",
-	"Seeme",
-	"Soome",
-	"Woome",
-	"Neese",
-	"Meese",
-	"Maase",
-	"Seese",
-	"Saase",
-	"Woose",
-	"Noole",
-	"Naale",
-	"Leele",
-	"Loole",
-	"Laale",
-	"Weele",
-	"Moowe",
-	"Soowe",
-	"Saawe",
-	"Leewe",
-	"Weewe",
-	"Waawe"
+objects = [
+  "nahne",
+  "mahne",
+  "lohne",
+  "wahne",
+  "nohme",
+  "mohme",
+  "bohme",
+  "wohme",
+  "nohse",
+  "lahse",
+  "mahse",
+  "wohse",
+  "nahle",
+  "bahle",
+  "lohle",
+  "lahle",
+  "mohwe",
+  "bohwe",
+  "bahwe",
+  "wahwe"
 ]
-
-
-/*for (var i = 0; i < objects.length; i++) {
-  document.write("<br><br>" + (i+1) + ". " + objects[i] + ":");
-	for (var j = 0; j < objects.length; j++) {
-	  
-	  // first char and fourth must not be the same
-	  if(objects[i].charAt(0) != objects[j].charAt(0)
-	    && objects[i].charAt(1) != objects[j].charAt(1)
-	    && objects[i].charAt(3) != objects[j].charAt(3)) {
-	    document.write("<br>- " + objects[j]);
-	  }
-
-  }
-}*/
 
 taken_competitors = [];
 
@@ -60,7 +36,7 @@ while (counter > -1) {
 
 loop1:
 for (var i = 0; i < objects.length; i++) {
-  document.write("<br><br>" + (i+1) + ". " + objects[i] + ":");
+  document.write("<br>" + objects[i] + ",");
   
   loop2:
 	for (var j = 0; j < objects.length; j++) {
@@ -70,7 +46,7 @@ for (var i = 0; i < objects.length; i++) {
 	    && objects[i].charAt(1) != objects[j].charAt(1)
 	    && objects[i].charAt(3) != objects[j].charAt(3)) {
 	    
-	    document.write(" " + objects[j]);
+	    document.write(objects[j]);
 	    taken_competitors.push(objects[j]);
 	    
 	    break loop2;

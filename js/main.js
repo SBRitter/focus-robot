@@ -4,36 +4,88 @@ $(document).ready(function(){
 
 var exp = {};
 
-var trainingTools = [
-  "lineal", "lineal",
-  "stift", "stift",
-  "schraubenschlüssel", "schraubenschlüssel",
-  "leiter", "leiter"
+var trainingObjects = [
+  "stuhl",
+  "tisch",
+  "hocker",
+  "stuhl",
+  "hocker",
+  "kommode",
+  "tisch",
+  "kommode",
+  
+  "lehwe",
+  "sohme",
+  "lahne",
+  "sohme",
+  "lehwe",
+  "sohme",
+  "sehse",
+  "lahne"
 ];
 
-var trainingObjects = [
-  "stuhl", "stuhl",
-  "hocker", "hocker",
-  "tisch", "tisch",
-  "kommode", "kommode"
+var trainingTools = [
+  "lineal",
+  "schraubenschlüssel",
+  "stift",
+  "lineal",
+  "stift",
+  "leiter",
+  "schraubenschlüssel",
+  "leiter",
+  
+  "schraube",
+  "schaufel",
+  "feile",
+  "schaufel",
+  "schraube",
+  "schaufel",
+  "nagel",
+  "feile"
 ];
 
 var trainingFocus = [
-  "broad", "corrective",
-  "background", "narrow", 
-  "broad", "background", 
-  "narrow", "corrective"
+  "broad",
+  "background", 
+  "background",
+  "corrective",
+  "narrow",
+  "corrective",
+  "broad",
+  "narrow",
+  
+  "background",
+  "broad",
+  "narrow",
+  "corrective",
+  "broad",
+  "narrow",
+  "background",
+  "corrective"
 ];
 
 var trainingCompetitors = [
-  "na", "kommode",
-  "schraubenschlüssel", "na",
-  "na", "stift",
-  "na", "hocker"
+  "na",
+  "stift",
+  "schraubenschlüssel",
+  "kommode",
+  "na",
+  "hocker",
+  "na",
+  "na",
+  
+  "nagel",
+  "na",
+  "na",
+  "lehle",
+  "na",
+  "na",
+  "zirkel",
+  "sehse"
 ];
 
 // randomise the training items lists
-var counter = trainingObjects.length-1;
+/*var counter = trainingObjects.length-1;
 while (counter > -1) {
 
   // draw random number
@@ -55,7 +107,7 @@ while (counter > -1) {
   trainingCompetitors[randomIndex] = tempCompetitor;
 
   counter--;
-}
+}*/
 
 var experimentTools = [];
 
@@ -70,20 +122,21 @@ var allObjects = trainingObjects.concat(experimentObjects);
 var allFocus = trainingFocus.concat(experimentFocus);
 var allCompetitors = trainingCompetitors.concat(experimentCompetitors);
 
-var trainingSequences = 8;
+var trainingSequences = 16;
 
 var introductionItems = [
   // test objects
-  "neene", "naane", "maane", "loone", "laane", "waane", "noome", "meeme", "moome", "seeme",
-  "soome", "woome", "neese", "meese", "maase", "seese", "saase", "woose", "noole", "naale",
-  "leele", "loole", "laale", "weele", "moowe", "soowe", "saawe", "leewe", "weewe", "waawe",
+  "nahne", "mahne", "lohne", "wahne", "nohme", "mohme", "bohme", "wohme", "nohse", "lahse",
+  "mahse", "wohse", "nahle", "bahle", "lohle", "lahle", "mohwe", "bohwe", "bahwe", "wahwe",
   // training objects
+  "lehwe", "lahne", "sohme", "sehse", "lehle",
   "stuhl", "hocker", "tisch", "kommode",
   // test tools
-  "amboss", "besen", "bohrer", "bürste", "feile", "hammer", "nagel", "pinsel", "rolle", "säge",
-  "schaufel", "schere", "schraube", "zange", "zirkel",
+  "amboss", "besen", "bohrer", "bürste", "hammer", 
+  "pinsel", "rolle", "säge", "schere", "zange",
   // training tools
-  "lineal", "stift", "schraubenschlüssel", "leiter"
+  "lineal", "stift", "schraubenschlüssel", "leiter",
+  "schaufel", "feile", "zirkel", "schraube", "nagel"
 ];
 
 /* view handler */

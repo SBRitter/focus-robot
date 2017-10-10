@@ -15,7 +15,6 @@ var openFile = function(event) {
 };
 
 var processData = function() {
-  console.log(data);
   var line;
   for (var l = 0; l < data.length; l++) {
     line = data[l].split(",");
@@ -39,7 +38,7 @@ var initConfigView = function() {
 
   $('#go-btn').on('click', function() {
     if ($("#start-trial").val() > 0) {
-      j = $("#start-trial").val() - 1 + 8;
+      j = $("#start-trial").val() - 1 + 16;
       scores = $("#start-trial").val() - 1;
     }
     if ($("#skip-intro").is(":checked")) {
@@ -94,7 +93,7 @@ var initPresentationView = function(items) {
       setTimeout(function() {
         $("#introduce-all-items").fadeIn("slow");
       }, 600);
-      if (i < 34) {
+      if (i < 29) {
         $("#introduce-all-items").html("<h2>" + deDoubleVowel(firstCap(items[i])) + "</h2>" + "<img src='img/objects/" + items[i] + ".png' height='400px'/>");
       } else {
         $("#introduce-all-items").html("<h2>" + deDoubleVowel(firstCap(items[i])) + "</h2>" + "<img src='img/tools/" + items[i] + ".png' height='400px'/>");
@@ -223,10 +222,11 @@ var initTrialView = function(tools, objects, focus, competitors, trainingSequenc
       populateBubble(focus[j], tools[j], objects[j], competitors[j]);
       $("#bubble").fadeIn("slow");
       
-      // play question
+      // play question;
       if (focus[j] === "broad") {
         audioElement.setAttribute('src', "audio/" + focus[j] + ".mp3");
       } else if (focus[j] === "narrow") {
+        
         audioElement.setAttribute('src', "audio/" + tools[j] + "-" + focus[j] + ".mp3");
       } else {
         audioElement.setAttribute('src', "audio/" + objects[j] + "-" + focus[j] + ".mp3");
@@ -235,7 +235,7 @@ var initTrialView = function(tools, objects, focus, competitors, trainingSequenc
       
       if (focus[j] === "broad") {
         setTimeout(function() { speak(3) }, 200);
-      } else if (focus[j] === "narrow" ) {
+      } else if (focus[j] === "narrow") {
         setTimeout(function() { speak(6) }, 200);
       } else {
         setTimeout(function() { speak(8) }, 200);
