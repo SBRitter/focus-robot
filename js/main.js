@@ -13,7 +13,7 @@ var trainingObjects = [
   "kommode",
   "tisch",
   "kommode",
-  
+
   "lehwe",
   "sohme",
   "lahne",
@@ -33,7 +33,7 @@ var trainingTools = [
   "leiter",
   "schraubenschlüssel",
   "leiter",
-  
+
   "schraube",
   "schaufel",
   "feile",
@@ -46,14 +46,14 @@ var trainingTools = [
 
 var trainingFocus = [
   "broad",
-  "background", 
+  "background",
   "background",
   "corrective",
   "narrow",
   "corrective",
   "broad",
   "narrow",
-  
+
   "background",
   "broad",
   "narrow",
@@ -73,7 +73,7 @@ var trainingCompetitors = [
   "hocker",
   "na",
   "na",
-  
+
   "nagel",
   "na",
   "na",
@@ -83,31 +83,6 @@ var trainingCompetitors = [
   "zirkel",
   "sehse"
 ];
-
-// randomise the training items lists
-/*var counter = trainingObjects.length-1;
-while (counter > -1) {
-
-  // draw random number
-  let randomIndex = Math.floor(Math.random() * counter);
-
-  // swap item at counter with item at random index
-  let tempTool = trainingTools[counter];
-  let tempObject = trainingObjects[counter];
-  let tempFocus = trainingFocus[counter];
-  let tempCompetitor = trainingCompetitors[counter];
-
-  trainingTools[counter] = trainingTools[randomIndex];
-  trainingTools[randomIndex] = tempTool;
-  trainingObjects[counter] = trainingObjects[randomIndex];
-  trainingObjects[randomIndex] = tempObject;
-  trainingFocus[counter] = trainingFocus[randomIndex];
-  trainingFocus[randomIndex] = tempFocus;
-  trainingCompetitors[counter] = trainingCompetitors[randomIndex];
-  trainingCompetitors[randomIndex] = tempCompetitor;
-
-  counter--;
-}*/
 
 var experimentTools = [];
 
@@ -132,7 +107,7 @@ var introductionItems = [
   "lehwe", "lahne", "sohme", "sehse", "lehle",
   "stuhl", "hocker", "tisch", "kommode",
   // test tools
-  "amboss", "besen", "bohrer", "bürste", "hammer", 
+  "amboss", "besen", "bohrer", "bürste", "hammer",
   "pinsel", "rolle", "säge", "schere", "zange",
   // training tools
   "lineal", "stift", "schraubenschlüssel", "leiter",
