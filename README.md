@@ -19,7 +19,7 @@ _________
 The contents of this project are licensed under the Creative Commons 
 Attribution 4.0 (CC BY 4.0).
 
-Licensed under the Apache License, Version 2.0 (the "License");
+The software is licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
 
